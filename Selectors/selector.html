@@ -1,0 +1,59 @@
+<html lang="en">
+<h2>Selector Examples</h2>
+<body>
+  
+  <p id="uniqueElement">Sentence with an ID.</p>
+  <div>This is a div.</div>
+  <p class="myClass">This is a sentence within a class.</p>
+  <input type="text" name="myName" value="input a sentence here">
+
+
+  <div>
+    <span id="output1"></span>
+    <button onclick="showOutput('getElementById')">Show getElementById Output</button>
+  </div>
+
+  <div>
+    <span id="output2"></span>
+    <button onclick="showOutput('getElementsByTagName')">Show getElementsByTagName Output</button>
+  </div>
+
+  <div>
+    <span id="output3"></span>
+    <button onclick="showOutput('getElementsByClassName')">Show getElementsByClassName Output</button>
+  </div>
+
+  <div>
+    <span id="output4"></span>
+    <button onclick="showOutput('getElementsByName')">Show getElementsByName Output</button>
+  </div>
+
+  <script>
+    function showOutput(selector) {
+      var elementById = document.getElementById("uniqueElement");
+      var elementsByTagName = document.getElementsByTagName("div");
+      var elementsByClassName = document.getElementsByClassName("myClass");
+      var elementsByName = document.getElementsByName("myName");
+
+      switch (selector) {
+        case 'getElementById':
+          document.getElementById("output1").textContent = "getElementById: " + elementById.textContent;
+          break;
+        case 'getElementsByTagName':
+          document.getElementById("output2").textContent = "getElementsByTagName: " + elementsByTagName[0].textContent;
+          break;
+        case 'getElementsByClassName':
+          document.getElementById("output3").textContent = "getElementsByClassName: " + elementsByClassName[0].textContent;
+          break;
+        case 'getElementsByName':
+          document.getElementById("output4").textContent = "getElementsByName: " + elementsByName[0].value;
+          break;
+        default:
+          break;
+      }
+    }
+  </script>
+
+
+</body>
+</html>

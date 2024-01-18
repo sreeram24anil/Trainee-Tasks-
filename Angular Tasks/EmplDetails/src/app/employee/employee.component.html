@@ -1,0 +1,31 @@
+<h1 class="page-title">Employee Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>EMP Id</th>
+      <th>EMP Name</th>
+      <th>Designation</th>
+
+      <th>Date</th>
+      <th>Address</th>
+      <th *ngIf="showSalary">Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employeeDetails">
+      <td>{{ employee.empId }}</td>
+      <td>{{ employee.empName }}</td>
+      <td>{{ employee.designation }}</td>
+
+      <td>{{ employee.date }}</td>
+      <td>{{ employee.address }}</td>
+      <td *ngIf="showSalary">{{ employee.salary }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<button (click)="toggleSalaryVisibility()">
+  {{ showSalary ? 'Hide' : 'Show' }}
+</button>
