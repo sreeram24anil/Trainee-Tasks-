@@ -1,0 +1,35 @@
+ @model User
+ <head>
+  	<title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<form method="post" class="signin-form">
+			<div>
+				<label class="label" for="name">Username</label>
+				<input type="text" class="form-control" asp-for="Username" placeholder="Username" required>
+			</div>
+
+			<div>
+				<label class="label" for="password">Password</label>
+				<input type="password" class="form-control" asp-for="Password" asp-area="Password" placeholder="Password" required>
+			</div>
+
+			<div>
+				<label style="color:red; margin-left:110px">@ViewBag.message</label>
+			</div>
+
+			<div>
+				<button type="submit"style="background-color: blue;">Sign In</button>
+			</div>
+
+			<div class="w-50" style="margin-left: 235px;">
+				<a asp-action="Forgotpassword" style="color:rgb(161, 62, 194);">Forgot Password</a>
+			</div>
+
+		</form>
+	</section>
+	</body>
