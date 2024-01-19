@@ -1,0 +1,50 @@
+<style>
+    .container {
+    background-color: #e0672b; 
+    padding: 20px; 
+    margin-top: 200px;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); 
+  }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AJAX Example</title>
+    </head>
+    <body>
+
+    <h1>Asynchronous Javascript and XML</h1>
+
+    <div id="data-container">
+        <button onclick="fetchData()">Fetch Data</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function fetchData() {        
+            var xhr = new XMLHttpRequest();// Create a new XMLHttpRequest object        
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);// Configure it: GET-request, the URL, asynchronous
+            xhr.onreadystatechange = function () {
+            // Set up a callback function to handle the response
+                if (xhr.readyState === 4 && xhr.status === 200) { //request complete and HTTP OK
+
+                    var responseData = JSON.parse(xhr.responseText);             // Parse the JSON response
+                    document.getElementById('result').innerHTML = 'UserID : ' + responseData.userId + '<br>Title : ' + responseData.title;   // Display the result
+                }
+            };
+            // Send the request
+            xhr.send();
+        }
+    </script>
+    </body>
+    </html>
+</div>
+
